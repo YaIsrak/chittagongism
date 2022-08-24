@@ -1,0 +1,29 @@
+.navbar-toggler {
+	.line {
+		background: white;
+		height: 3px;
+		width: 2rem;
+		margin: 0.5rem 0;
+	}
+	outline: none;
+	border: none;
+	box-shadow: none;
+	&:focus {
+		outline: none;
+		box-shadow: none;
+	}
+	// &:active {
+	// 	.line {
+	// 		margin: 0;
+	// 		position: relative;
+	// 		transform: translate(-50%, -50%);
+	// 		transition: 0.01s;
+	// 	}
+	// 	.line1 {
+	// 		transform: rotate(45deg);
+	// 	}
+	// 	.line2 {
+	// 		transform: rotate(-45deg);
+	// 	}
+	// }
+}

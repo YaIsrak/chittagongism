@@ -1,0 +1,12 @@
+* {
+  font-family: "Playfair Display", serif;
+  transition: 0.3s;
+}
+
+section {
+  padding: 15vmin 0;
+}
+
+body {
+  overflow-x: hidden;
+}

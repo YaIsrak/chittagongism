@@ -1,0 +1,13 @@
+@import './variable.scss';
+
+* {
+	font-family: $font1;
+	transition: 0.3s;
+}
+section {
+	padding: 15vmin 0;
+}
+
+body {
+	overflow-x: hidden;
+}
