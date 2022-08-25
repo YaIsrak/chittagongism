@@ -2,7 +2,7 @@ import { useState } from 'react';
 import useStorage from '../hooks/useStorage';
 import ProgressBar from './ProgressBar';
 
-export default function ImageUploadForm({ folder }) {
+export default function ImageUploadForm({ folder, btn, dataLength }) {
 	const [file, setFile] = useState(null);
 	const [error, setError] = useState(null);
 	// hooks
@@ -24,9 +24,15 @@ export default function ImageUploadForm({ folder }) {
 		<div className='image-upload-form container'>
 			<form className='form' onSubmit={handleImageSubmit}>
 				<input className='form-control' type='file' onChange={handleChange} />
-				<button className='btn btn-dark my-2' type='submit'>
+				<button className='btn btn-dark my-2' disabled={btn} type='submit'>
 					Upload
 				</button>
+				{dataLength >= 3 && (
+					<p className='text-danger'>
+						You can't upload more then 3 photos on feature. Please Delect to add
+						more!
+					</p>
+				)}
 			</form>
 
 			{file !== null && progress !== 100 && (
