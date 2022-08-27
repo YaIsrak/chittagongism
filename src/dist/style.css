@@ -10,3 +10,45 @@ section {
 body {
   overflow-x: hidden;
 }
+
+.overlay {
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.backdrop img {
+  display: block;
+  max-height: 80%;
+  margin: 60px auto;
+  border: 3px solid white;
+}
+
+.buttonstyle {
+  background-color: black;
+  border: 1px solid black;
+}
+.buttonstyle a {
+  background-color: #000000;
+  color: white;
+  text-decoration: none;
+}
+.buttonstyle:hover {
+  background: white;
+  color: black;
+}
+.buttonstyle:hover a {
+  background: white;
+  color: black;
+}

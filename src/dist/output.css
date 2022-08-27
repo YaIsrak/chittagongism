@@ -583,20 +583,20 @@ video {
   }
 }
 
+.z-10 {
+  z-index: 10;
+}
+
 .z-30 {
   z-index: 30;
 }
 
-.col-auto {
-  grid-column: auto;
+.z-20 {
+  z-index: 20;
 }
 
-.col-span-3 {
-  grid-column: span 3 / span 3;
-}
-
-.col-span-1 {
-  grid-column: span 1 / span 1;
+.z-0 {
+  z-index: 0;
 }
 
 .my-2 {
@@ -614,31 +614,16 @@ video {
   margin-right: auto;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .h-screen {
   height: 100vh;
 }
 
-.columns-3 {
-  -webkit-columns: 3;
-          columns: 3;
-}
-
-.columns-1 {
-  -webkit-columns: 1;
-          columns: 1;
-}
-
-.columns-2 {
-  -webkit-columns: 2;
-          columns: 2;
-}
-
 .bg-orange-100\/40 {
   background-color: rgb(255 237 213 / 0.4);
-}
-
-.bg-zinc-900\/20 {
-  background-color: rgb(24 24 27 / 0.2);
 }
 
 .bg-cover {
@@ -663,6 +648,10 @@ video {
   text-align: center;
 }
 
+.font-sans {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -671,6 +660,14 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.transition {
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, -webkit-text-decoration-color, -webkit-transform, -webkit-filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-transform, -webkit-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 @media (min-width: 768px) {

@@ -2,7 +2,7 @@ import '../dist/nav.css';
 
 export default function Nav() {
 	return (
-		<nav className='navbar navbar-dark fixed-top bg-zinc-900/20 '>
+		<nav className='navbar navbar-dark fixed-top'>
 			<div className='container'>
 				<a className='navbar-brand fw-bold' href='/'>
 					Chiitagongism

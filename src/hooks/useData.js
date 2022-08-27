@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 import { projectFirestore } from '../firebase';
 
 export default function useData(folder) {
@@ -11,7 +11,10 @@ export default function useData(folder) {
 
 	useEffect(() => {
 		async function getData() {
-			const data = await getDocs(collectionRef);
+			const data = await getDocs(
+				query(collectionRef),
+				orderBy('createdAt', 'desc')
+			);
 			setDatas(
 				data.docs.map((doc) => ({
 					...doc.data(),

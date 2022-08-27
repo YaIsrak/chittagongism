@@ -1,15 +1,14 @@
-import FP1 from '../Photos/1.jpg';
-import FP2 from '../Photos/2.jpg';
-import FP3 from '../Photos/3.jpg';
+import useData from '../hooks/useData';
 import GalleryCarousel from './GalleryCarousel';
 
 export default function GalleryIntro() {
+	const { datas, loading } = useData('feature');
+
 	return (
 		<div
 			id='carouselExampleFade'
 			className='carousel slide carousel-fade'
 			data-bs-ride='carousel'
-			// style={{ height: '100vh' }}
 		>
 			<h1
 				className='position-absolute top-50 start-50 translate-middle z-30 fw-bold text-white'
@@ -18,17 +17,16 @@ export default function GalleryIntro() {
 				Gallery
 			</h1>
 			<div className='carousel-inner'>
-				<div className='carousel-item active'>
-					<GalleryCarousel image={FP1} />
-				</div>
-				<div className='carousel-item'>
-					<GalleryCarousel image={FP2} />
-				</div>
-				<div className='carousel-item'>
-					<GalleryCarousel image={FP3} />
-				</div>
+				{datas.map((data, i) => (
+					<GalleryCarousel
+						key={data.id}
+						image={data.url}
+						i={i}
+						loading={loading}
+					/>
+				))}
 			</div>
-
+			{/* prev Button */}
 			<button
 				className='carousel-control-prev'
 				type='button'
@@ -38,6 +36,8 @@ export default function GalleryIntro() {
 				<span className='carousel-control-prev-icon' aria-hidden='true'></span>
 				<span className='visually-hidden'>Previous</span>
 			</button>
+
+			{/* next button */}
 			<button
 				className='carousel-control-next'
 				type='button'

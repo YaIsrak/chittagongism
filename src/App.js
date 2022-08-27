@@ -5,6 +5,7 @@ import Admin from './components/admin/Admin';
 import AdminGallery from './components/admin/AdminGallery';
 import About from './pages/About';
 import AdminFeature from './components/admin/AdminFeature';
+import Login from './pages/Login';
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 					<Route path='/about' element={<About />} />
 
 					{/* admin */}
+					<Route path='/login' element={<Login />} />
 					<Route path='/admin' element={<Admin />} />
 					<Route path='/admin/gallery' element={<AdminGallery />} />
 					<Route path='/admin/feature' element={<AdminFeature />} />

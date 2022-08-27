@@ -15,7 +15,7 @@ export default function AdminGalleryItem({ data, index }) {
 					className='img-fluid'
 					style={{ height: '70px' }}
 				/>
-				<p>Created on - {date.toDateString()}</p>
+				<p>Created on - {date.toString()}</p>
 				<button className='btn btn-danger btn-sm' onClick={delectImage}>
 					Delect
 				</button>
