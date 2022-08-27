@@ -6,22 +6,47 @@ import AdminGallery from './components/admin/AdminGallery';
 import About from './pages/About';
 import AdminFeature from './components/admin/AdminFeature';
 import Login from './pages/Login';
+import PrivateRoute from './components/admin/PrivateRouter';
+import { AuthProvider } from './hooks/AuthContext';
 
 function App() {
 	return (
 		<div className='App'>
 			<Router>
-				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='/gallery' element={<Gallery />} />
-					<Route path='/about' element={<About />} />
+				<AuthProvider>
+					<Routes>
+						<Route exact path='/' element={<Home />} />
+						<Route exact path='/gallery' element={<Gallery />} />
+						<Route exact path='/about' element={<About />} />
 
-					{/* admin */}
-					<Route path='/login' element={<Login />} />
-					<Route path='/admin' element={<Admin />} />
-					<Route path='/admin/gallery' element={<AdminGallery />} />
-					<Route path='/admin/feature' element={<AdminFeature />} />
-				</Routes>
+						{/* admin */}
+						<Route path='/login' element={<Login />} />
+						<Route
+							path='/admin'
+							element={
+								<PrivateRoute>
+									<Admin />
+								</PrivateRoute>
+							}
+						/>
+						<Route
+							path='/admin/gallery'
+							element={
+								<PrivateRoute>
+									<AdminGallery />
+								</PrivateRoute>
+							}
+						/>
+						<Route
+							path='/admin/feature'
+							element={
+								<PrivateRoute>
+									<AdminFeature />
+								</PrivateRoute>
+							}
+						/>
+					</Routes>
+				</AuthProvider>
 			</Router>
 		</div>
 	);

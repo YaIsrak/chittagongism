@@ -12,6 +12,7 @@ export default function AdminNav() {
 						Main website
 					</button>
 				</Link>
+				<button className='btn btn-sm btn-outline-danger'>Logout</button>
 				<button
 					className='navbar-toggler'
 					type='button'
@@ -28,7 +29,7 @@ export default function AdminNav() {
 					<ul className='navbar-nav'>
 						<li className='nav-item active'>
 							<Link className=' nav-link active' to='/admin'>
-								Pricing
+								Info
 							</Link>
 						</li>
 						<li className='nav-item'>

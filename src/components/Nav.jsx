@@ -1,12 +1,13 @@
 import '../dist/nav.css';
+import { Link } from 'react-router-dom';
 
 export default function Nav() {
 	return (
 		<nav className='navbar navbar-dark fixed-top'>
 			<div className='container'>
-				<a className='navbar-brand fw-bold' href='/'>
+				<Link className='navbar-brand fw-bold' to='/'>
 					Chiitagongism
-				</a>
+				</Link>
 				<button
 					className='navbar-toggler'
 					type='button'
@@ -22,24 +23,29 @@ export default function Nav() {
 				<div className='collapse navbar-collapse' id='navbarNav'>
 					<ul className='navbar-nav'>
 						<li className='nav-item'>
-							<a className='nav-link active' href='/'>
+							<Link className='nav-link active' to='/'>
 								Home
-							</a>
+							</Link>
 						</li>
 						<li className='nav-item'>
-							<a className='nav-link' href='/about'>
+							<Link className='nav-link' to='/about'>
 								About
-							</a>
+							</Link>
 						</li>
 						<li className='nav-item'>
-							<a className='nav-link' href='/gallery'>
+							<Link className='nav-link' to='/gallery'>
 								Gallery
-							</a>
+							</Link>
 						</li>
 						<li className='nav-item'>
-							<a className='nav-link' href='mailto:itschittagongism@gmail.com'>
+							<Link className='nav-link' to='mailto:itschittagongism@gmail.com'>
 								Contact
-							</a>
+							</Link>
+						</li>
+						<li className='nav-item'>
+							<Link className='nav-link' to='/admin'>
+								Admin
+							</Link>
 						</li>
 					</ul>
 				</div>

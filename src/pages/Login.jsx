@@ -1,9 +1,9 @@
-import useAuth from '../hooks/useAuth';
+import { useAuth } from '../hooks/AuthContext';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
 	const { currentUser, setEmail, setPassword, handleLogin } = useAuth();
-
-	console.log('user:', currentUser);
+	console.log(currentUser);
 
 	return (
 		<section className='login'>
@@ -31,9 +31,17 @@ export default function Login() {
 					>
 						Login
 					</button>
-					<a href='/' className='font-sans'>
+					<Link to='/' className='font-sans'>
 						Forgot Password?
-					</a>
+					</Link>
+					<br />
+					<Link to='/' className='font-sans'>
+						Back to Home
+					</Link>{' '}
+					<br />
+					<Link to='/admin' className='font-sans'>
+						Admin
+					</Link>
 				</div>
 			</div>
 		</section>
