@@ -1,22 +1,17 @@
+import useData from '../hooks/useData';
+
 export default function Footer() {
-	const datas = [
-		{
-			name: 'Facebook',
-			link: 'https://www.facebook.com/ChittagongismPhotography017',
-		},
-		{
-			name: 'Instagram',
-			link: 'https://www.instagram.com/chittagongism',
-		},
-	];
+	const { datas } = useData('socialLinks');
+	const { email } = useData('info');
+
 	return (
 		<section className='footer bg-dark text-white'>
 			<div className='container '>
 				<div className='row'>
 					<div className='col-md-6'>
 						<h3>Kazi Akib</h3>
-						<a className='text-white' href='mailto:itschittagongism@gmail.com'>
-							itschittagongism@gmail.com
+						<a className='text-white' href={`mailto:${email}`}>
+							{email}
 						</a>{' '}
 						<br />
 						<div>
@@ -28,8 +23,8 @@ export default function Footer() {
 						</div>
 						<br />
 						<p className='text-muted'>
-							Website Created by{' '}
-							<a className='text-muted' href='/'>
+							Website Created by
+							<a className='text-muted' href='http://linktr.ee/yaserisrak'>
 								MD Yaser Arafat Israk
 							</a>
 						</p>

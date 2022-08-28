@@ -2,6 +2,7 @@ import {
 	// getAuth,
 	onAuthStateChanged,
 	signInWithEmailAndPassword,
+	signOut,
 } from 'firebase/auth';
 import React, { useContext, useEffect, useState } from 'react';
 import { auth } from '../firebase';
@@ -35,11 +36,16 @@ export function AuthProvider({ children }) {
 			});
 	};
 
+	const signout = () => {
+		return signOut(auth);
+	};
+
 	const value = {
 		currentUser,
 		setEmail,
 		setPassword,
 		handleLogin,
+		signout,
 	};
 
 	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

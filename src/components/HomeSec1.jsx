@@ -1,11 +1,12 @@
+import useData from '../hooks/useData';
+
 export default function HomeSec1() {
-	const introImage =
-		'https://firebasestorage.googleapis.com/v0/b/chittagongism.appspot.com/o/intro%2F1660931701428.jpg?alt=media&token=7a911c5a-9d70-43e5-b078-a64421ce3282';
+	const { coverPhoto } = useData('info');
 	return (
 		<section
 			className='homesec1'
 			style={{
-				backgroundImage: `url('${introImage}')`,
+				backgroundImage: `url('${coverPhoto}')`,
 				backgroundSize: 'cover',
 				backgroundPosition: 'center',
 				height: '100vh',

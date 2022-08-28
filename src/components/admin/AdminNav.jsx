@@ -1,18 +1,26 @@
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/AuthContext';
 
 export default function AdminNav() {
+	const { signout } = useAuth();
+
 	return (
 		<nav className='navbar navbar-expand-lg navbar-light bg-light'>
 			<div className='container'>
 				<Link className='navbar-brand ' to='/admin'>
 					Admin Pannel
 				</Link>
-				<Link to='/'>
-					<button className='btn btn-sm btn-outline-success me-2 '>
-						Main website
+				<div>
+					<Link to='/'>
+						<button className='btn btn-sm btn-outline-success me-2'>
+							Main website
+						</button>
+					</Link>
+					<button className='btn btn-sm btn-outline-danger' onClick={signout}>
+						Logout
 					</button>
-				</Link>
-				<button className='btn btn-sm btn-outline-danger'>Logout</button>
+				</div>
+
 				<button
 					className='navbar-toggler'
 					type='button'
