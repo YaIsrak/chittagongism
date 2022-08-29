@@ -11,7 +11,7 @@ export default function FeatureSec() {
 						<img
 							key={data.id}
 							id={data.id}
-							className='col-4 img-fluid'
+							className='col-md-4 img-fluid'
 							src={data.url}
 							alt='Feature Photos'
 						/>

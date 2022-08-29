@@ -4,19 +4,26 @@ export default function AdminGalleryItem({ data, index, delectImage }) {
 	return (
 		<li className=''>
 			<div>
-				{index + 1}
+				<h4>{index + 1}</h4>
 				<img
 					src={data.url}
 					alt=''
 					className='img-fluid'
 					style={{ height: '70px' }}
 				/>
-				{data.createdAt && <p>Created on - {date.toString()}</p>}
+				{data.createdAt && (
+					<p className='font-sans'>
+						Created on -{' '}
+						<span className='badge bg-info text-black font-sans'>
+							{date.toString()}
+						</span>
+					</p>
+				)}
 				<button
-					className='btn btn-danger btn-sm'
+					className='btn btn-danger btn-sm font-sans'
 					onClick={() => delectImage(data.id, data.url)}
 				>
-					Delect
+					Delete
 				</button>
 			</div>
 		</li>

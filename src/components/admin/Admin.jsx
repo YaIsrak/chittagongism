@@ -22,76 +22,87 @@ export default function Admin() {
 		<>
 			<AdminNav />
 			<section className='container'>
-				<h3>Welcome {currentUser.email}!</h3>
-				<p className='text-sm'>user id: {currentUser.uid}</p>
-				<p>Edit your data:</p>
+				<h3 className=' font-sans'>Welcome {currentUser.email}!</h3>
+				<p className='text-sm font-sans'>
+					user id:{' '}
+					<span className='badge bg-info font-sans text-dark'>
+						{currentUser.uid}
+					</span>
+				</p>
+				<p className=' font-sans'>Edit your data:</p>
 				<div className='form'>
-					<label>About</label>
+					<label className='font-sans'>About</label>
 					<textarea
 						type='textarea'
-						className='form-control'
+						className='form-control font-sans'
 						placeholder='About'
 						defaultValue={about}
 						onChange={(e) => setAbout(e.target.value)}
 					/>
-					<label>Email</label>
+					<label className=' font-sans'>Email</label>
 					<input
 						type='text'
 						placeholder='Contact mail'
-						className='form-control'
+						className='form-control font-sans'
 						defaultValue={email}
 						onChange={(e) => setEmail(e.target.value)}
 					/>
-					<label>Profile Photo Link</label>
+					<label className=' font-sans'>Profile Photo Link</label>
 					<input
 						type='text'
 						placeholder='Profile Photo Link'
-						className='form-control'
+						className='form-control font-sans'
 						defaultValue={profilePhoto}
 						onChange={(e) => setProfilePhoto(e.target.value)}
 					/>
-					<label>Cover Photo Link</label>
+					<label className=' font-sans'>Cover Photo Link</label>
 					<input
 						type='text'
 						placeholder='Cover Photo Link'
-						className='form-control'
+						className='form-control font-sans'
 						defaultValue={coverPhoto}
 						onChange={(e) => setCoverPhoto(e.target.value)}
 					/>
-					<button className='btn btn-primary mt-2' onClick={updateData}>
+					<button
+						className='btn btn-primary mt-2 font-sans'
+						onClick={updateData}
+					>
 						Save
 					</button>
 					<hr />
 
 					<div className='social'>
-						<h1>Social media link</h1>
+						<h1 className='font-sans'>Social media link</h1>
 						<input
 							type='text'
-							className='form-control'
+							className='form-control font-sans'
 							placeholder='Name'
 							onChange={(e) => setName(e.target.value)}
 						/>
 						<input
 							type='text'
-							className='form-control'
+							className='form-control font-sans'
 							placeholder='Url'
 							onChange={(e) => setLink(e.target.value)}
 						/>
-						<button className='btn btn-primary mt-2' onClick={addData}>
+						<button
+							className='btn btn-primary mt-2 font-sans'
+							onClick={addData}
+						>
 							Add
 						</button>
 
 						{/* Social Link */}
-						<h3>List</h3>
+						<h3 className=' font-sans'>List</h3>
 						<ul>
 							{datas.map((data) => (
 								<li key={data.id}>
-									<h5>
+									<h5 className=' font-sans'>
 										{data.name} - {data.link}
 									</h5>
-									<p>id: {data.id}</p>
+									<p className=' font-sans'>id: {data.id}</p>
 									<button
-										className='btn btn-danger'
+										className='btn btn-danger font-sans'
 										onClick={() => handleDelete(data.id)}
 									>
 										Delete

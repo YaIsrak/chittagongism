@@ -5,9 +5,9 @@ import {
 	deleteDoc,
 	doc,
 	getDocs,
-	onSnapshot,
-	orderBy,
-	query,
+	// onSnapshot,
+	// orderBy,
+	// query,
 	setDoc,
 } from 'firebase/firestore';
 import { projectFirestore } from '../firebase';
@@ -19,24 +19,24 @@ export default function useData(folder) {
 
 	useEffect(() => {
 		async function getData() {
-			onSnapshot(
-				query(collectionRef, orderBy('createdAt', 'desc')),
-				(snapshot) => {
-					setDatas(
-						snapshot.docs.map((doc) => ({
-							...doc.data(),
-							id: doc.id,
-						}))
-					);
-				}
-			);
-			// const data = await getDocs(collectionRef);
-			// setDatas(
-			// 	data.docs.map((doc) => ({
-			// 		...doc.data(),
-			// 		id: doc.id,
-			// 	}))
+			// onSnapshot(
+			// 	query(collectionRef, orderBy('createdAt', 'desc')),
+			// 	(snapshot) => {
+			// 		setDatas(
+			// 			snapshot.docs.map((doc) => ({
+			// 				...doc.data(),
+			// 				id: doc.id,
+			// 			}))
+			// 		);
+			// 	}
 			// );
+			const data = await getDocs(collectionRef);
+			setDatas(
+				data.docs.map((doc) => ({
+					...doc.data(),
+					id: doc.id,
+				}))
+			);
 			setLoading(false);
 		}
 		getData();
