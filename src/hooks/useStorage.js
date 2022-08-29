@@ -1,5 +1,16 @@
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import {
+	addDoc,
+	collection,
+	deleteDoc,
+	doc,
+	serverTimestamp,
+} from 'firebase/firestore';
+import {
+	deleteObject,
+	getDownloadURL,
+	ref,
+	uploadBytesResumable,
+} from 'firebase/storage';
 import { useState } from 'react';
 import { projectStorage, projectFirestore } from '../firebase';
 
@@ -32,7 +43,7 @@ export default function useStorage(folder) {
 			},
 			() => {
 				getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => {
-					alert('Photo uploaded');
+					alert('Photo uploaded, Please Refresh!');
 					setUrl(downloadUrl);
 					async function addImage() {
 						await addDoc(collectionRef, {
@@ -46,5 +57,24 @@ export default function useStorage(folder) {
 		);
 	};
 
-	return { handleImageSubmit, url, progress };
+	// delect function
+	const delectImage = (id, url) => {
+		const pictureRef = ref(projectStorage, url);
+
+		// delect task
+		deleteObject(pictureRef)
+			.then(() => {
+				alert('Picure is delected succesfully');
+				async function handleDelete() {
+					await deleteDoc(doc(projectFirestore, folder, id));
+					alert('doc delected');
+				}
+				handleDelete();
+			})
+			.catch((err) => {
+				alert('something is wrong', err);
+			});
+	};
+
+	return { handleImageSubmit, url, progress, delectImage };
 }

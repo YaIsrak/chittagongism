@@ -5,6 +5,7 @@ import {
 	deleteDoc,
 	doc,
 	getDocs,
+	onSnapshot,
 	orderBy,
 	query,
 	setDoc,
@@ -18,16 +19,24 @@ export default function useData(folder) {
 
 	useEffect(() => {
 		async function getData() {
-			const data = await getDocs(
-				query(collectionRef),
-				orderBy('createdAt', 'desc')
+			onSnapshot(
+				query(collectionRef, orderBy('createdAt', 'desc')),
+				(snapshot) => {
+					setDatas(
+						snapshot.docs.map((doc) => ({
+							...doc.data(),
+							id: doc.id,
+						}))
+					);
+				}
 			);
-			setDatas(
-				data.docs.map((doc) => ({
-					...doc.data(),
-					id: doc.id,
-				}))
-			);
+			// const data = await getDocs(collectionRef);
+			// setDatas(
+			// 	data.docs.map((doc) => ({
+			// 		...doc.data(),
+			// 		id: doc.id,
+			// 	}))
+			// );
 			setLoading(false);
 		}
 		getData();
@@ -42,8 +51,9 @@ export default function useData(folder) {
 			const docRef = await addDoc(collectionRef, {
 				name,
 				link,
+				createdAt: new Date(),
 			});
-			alert(`succesfully added ${docRef.id}, Please Refresh!`);
+			alert(`succesfully added ${docRef.id}`);
 		} catch (e) {
 			alert(e);
 		}
@@ -53,7 +63,6 @@ export default function useData(folder) {
 	async function handleDelete(id) {
 		await deleteDoc(doc(projectFirestore, 'socialLinks', id));
 		alert('succesfully delected', id);
-		alert('Please refresh! ');
 	}
 
 	// Update Doc
@@ -70,7 +79,7 @@ export default function useData(folder) {
 			profilePhoto,
 			coverPhoto,
 		});
-		alert('succesfull, Please Refresh');
+		alert('Succesfull');
 	}
 
 	useEffect(() => {

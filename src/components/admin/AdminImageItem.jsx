@@ -1,9 +1,5 @@
-export default function AdminGalleryItem({ data, index }) {
+export default function AdminGalleryItem({ data, index, delectImage }) {
 	const date = data.createdAt.toDate();
-
-	const delectImage = () => {
-		console.log(data.id);
-	};
 
 	return (
 		<li className=''>
@@ -15,8 +11,11 @@ export default function AdminGalleryItem({ data, index }) {
 					className='img-fluid'
 					style={{ height: '70px' }}
 				/>
-				<p>Created on - {date.toString()}</p>
-				<button className='btn btn-danger btn-sm' onClick={delectImage}>
+				{data.createdAt && <p>Created on - {date.toString()}</p>}
+				<button
+					className='btn btn-danger btn-sm'
+					onClick={() => delectImage(data.id, data.url)}
+				>
 					Delect
 				</button>
 			</div>
