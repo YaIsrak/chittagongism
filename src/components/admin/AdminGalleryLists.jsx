@@ -8,7 +8,9 @@ export default function AdminGalleryLists({ folder }) {
 
 	return (
 		<div className='container'>
-			<h1>{folder} List</h1>
+			<h1>
+				{folder} List- {datas.length}
+			</h1>
 			<hr />
 			{datas.map((data, i) => (
 				<ul className='' key={data.id} id={data.id}>

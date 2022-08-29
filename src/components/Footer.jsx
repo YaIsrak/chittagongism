@@ -23,7 +23,7 @@ export default function Footer() {
 						</div>
 						<br />
 						<p className='text-muted'>
-							Website Created by
+							Website Created by{' '}
 							<a className='text-muted' href='http://linktr.ee/yaserisrak'>
 								MD Yaser Arafat Israk
 							</a>
